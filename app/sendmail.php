@@ -1,16 +1,17 @@
 <?php
-	$SITE_TITLE = 'LeoLoft';
-	$SITE_DESCR = '';
+	$SITE_TITLE = 'check.silk-its.com';
+	$SITE_DESCR = '[G3]';
 
 	if ( isset($_POST) ) {
 		$name = htmlspecialchars(trim($_POST['name']));
 		$phone = htmlspecialchars(trim($_POST['phone']));
-		$number = htmlspecialchars(trim($_POST['number']));
-		$product = htmlspecialchars(trim($_POST['product']));
-		$subject = $_POST['subject'] ? htmlspecialchars(trim($_POST['subject'])) : '';
+		$number = isset($_POST['number']) ?  htmlspecialchars(trim($_POST['number'])) : '';
+		$product = isset($_POST['product']) ? htmlspecialchars(trim($_POST['product'])) : '';
+		$subject = isset($_POST['subject']) ? htmlspecialchars(trim($_POST['subject'])) : '';
 		$comment = isset($_POST['comment']) ? htmlspecialchars(trim($_POST['comment'])) : '';
 		$question = isset($_POST['question']) ? htmlspecialchars(trim($_POST['question'])) : '';
-		$to = 'rudolifrudolif@gmail.com';
+		$email = isset($_POST['email']) ? htmlspecialchars(trim($_POST['email'])) : '';
+		$to = 'Elena357910@yandex.com';
 
 		$headers = "From: $SITE_TITLE \r\n";
 		$headers .= "Reply-To: ". $email . "\r\n";
@@ -57,4 +58,3 @@
 			echo '<div class="error">Ошибка, данные формы не переданы.</div>';
 	}
 	die();
-?>

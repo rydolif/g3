@@ -6,8 +6,14 @@ $(function() {
     spaceBetween: 30,
     navigation: {
       nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      prevEl: '.swiper-button-prev'
     },
+    breakpoints: {
+        767: {
+            slidesPerView: 1
+        }
+    }
+
   });
 
 //------------------------------гамбургер-----------------------------
@@ -57,7 +63,7 @@ $(function() {
   function ajaxSend(formName, data) {
     jQuery.ajax({
       type: "POST",
-      url: "sendmail.php",
+      url: "app/sendmail.php",
       data: data,
       success: function() {
         $(".modal").popup("hide");
@@ -80,19 +86,25 @@ $(function() {
   });
 
 //-------------------------скорость якоря---------------------------------------
-  $(".header__list").on("click","a", function (event) {
+  $("nav.nav ul").on("click","a", function (event) {
       event.preventDefault();
       var id  = $(this).attr('href'),
           top = $(id).offset().top;
       $('body,html').animate({scrollTop: top - 60}, 'slow', 'swing');
   //--------------------закриття меню при кліку на ссилку якоря--------------------
-     // $('.hamburger').removeClass('hamburger-active');
-     // $('.header-menu').removeClass('header-menu');
-     // $('.header-active').removeClass('header-active');
-     // $('.nav-active').removeClass('nav-active');
+     $('.hamburger').removeClass('hamburger-active');
+     $('.header-menu').removeClass('header-menu');
+     $('.header-active').removeClass('header-active');
+     $('.nav-active').removeClass('nav-active');
 
   });
-  
+  $("nav ul.footer__menu-items").on("click","a", function (event) {
+      event.preventDefault();
+      var id  = $(this).attr('href'),
+          top = $(id).offset().top;
+      $('body,html').animate({scrollTop: top - 60}, 'slow', 'swing');
+
+  });
 });
 
 //----------------------------------------preloader----------------------------------

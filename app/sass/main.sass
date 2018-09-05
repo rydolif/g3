@@ -19,7 +19,7 @@
 		background-color: rgba(0, 0, 0, .8)
 		padding: 5px 0
 
-	&__container
+	&__block
 		position: relative
 		display: flex
 		flex-direction: row
@@ -28,6 +28,8 @@
 
 	&__logo
 		display: block
+		img
+			width: 260px
 
 	&__btn
 		background-color: transparent
@@ -48,7 +50,6 @@
 			color: $text
 			background-color: #fff
 			box-shadow: 0 0 0 rgba(0, 0, 0, .2)
-
 	&-content
 		background-image: url(../img/header-bg.jpg)
 		background-position: center
@@ -110,16 +111,14 @@
 		&:focus
 			color: #fff
 
-h1
-	font-size: 60px
-	line-height: 1
-	letter-spacing: 1px
-	margin-bottom: 35px
+
 
 .about
 	padding-top: 90px
 	padding-bottom: 85px
 	background-color: #f4f9ff
+	position: relative
+	overflow: initial
 
 	h2
 		margin-bottom: 20px
@@ -151,8 +150,10 @@ h1
 		border: 1px solid #f2f2f2
 		&:hover
 			background-color: #fff
+			box-shadow: 0 10px 25px rgba(76, 161, 252, 0.16)
 		&:focus
 			background-color: #fff
+			box-shadow: 0 10px 25px rgba(76, 161, 252, 0.16)
 
 		a
 			display: block
@@ -167,9 +168,9 @@ h1
 			left: 50%
 			top: 50%
 			transform: translate(-50%, -50%)
-	
+
 	.swiper-wrapper
-		padding: 20px
+		padding: 20px 0
 
 	.swiper-button-next, .swiper-button-prev
 		background-image: url(../img/icon/arrow.svg)
@@ -189,14 +190,50 @@ h1
 		&:hover
 			transform: scale(1.3) rotate(180deg)
 
+	&::after
+		content: ''
+		display: block
+		position: absolute
+		background-image: url(../img/icon/about_bg.svg)
+		background-repeat: no-repeat
+		width: 102px
+		height: 103px
+		left: 10%
+		bottom: -50px
+
 .competence
 	padding-top: 70px
 	padding-bottom: 30px
 	text-align: center
+	position: relative
+	overflow: initial
+	background: transparent
+
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		bottom: 80px
+		left: 0
+		background: url('../img/competence_bg-left.png') no-repeat
+		background-size: contain
+		width: 324px
+		height: 426px
+
+	&::after
+		content: ''
+		display: block
+		position: absolute
+		top: -265px
+		right: 0
+		background: url('../img/competence_bg-right.png') no-repeat
+		background-size: contain
+		width: 452px
+		height: 683px
 
 	&__sub-title
 		font-size: 16px
-		color: $title
+		font-family: $fonts
 		margin-bottom: 25px
 
 	h3
@@ -216,22 +253,34 @@ h1
 	&__item
 		width: 28%
 		margin-bottom: 40px
+		&:nth-child(1)
+			.competence__img_absolute
+				right: 33%
 		&:nth-child(2)
 			.competence__img_svg
 				transform: rotate(-40deg)
+			.competence__img_absolute
+				right: 27%
 		&:nth-child(3)
-			.competence__img_svg
-				transform: rotate(-20deg)
+			.competence__img_absolute
+				right: 33%
+		&:nth-child(4)
+			.competence__img_absolute
+				right: 33%
 		&:nth-child(5)
 			.competence__img_svg
 				transform: rotate(-40deg)
+			.competence__img_absolute
+				right: 30%
 		&:nth-child(6)
 			.competence__img_svg
-				transform: rotate(-20deg)
+				transform: rotate(-40deg)
+			.competence__img_absolute
+				right: 27%
 
 		p
 			color: #4c4c4c
-	
+
 	&__img
 		position: relative
 		margin-bottom: 20px
@@ -251,6 +300,30 @@ h1
 	padding-top: 115px
 	padding-bottom: 60px
 	background-color: #f5f9ff
+	overflow: inherit
+	position: relative
+
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		bottom: -250px
+		left: 0
+		background: url('../img/company_bg-left.png') no-repeat
+		background-size: contain
+		width: 344px
+		height: 504px
+
+	&::after
+		content: ''
+		display: block
+		position: absolute
+		top: -30px
+		right: 0
+		background: url('../img/company_bg-right.png') no-repeat
+		background-size: contain
+		width: 614px
+		height: 614px
 
 	h2
 		margin-bottom: 45px
@@ -284,7 +357,7 @@ h1
 .services
 	padding-top: 100px
 	padding-bottom: 170px
-	background-color: #f9fcff
+	background-color: #feffff
 
 	&__container
 		display: flex
@@ -333,11 +406,205 @@ h1
 		margin-top: auto
 		padding: 0 50px
 
+.monitoring
+	text-align: center
+	background-color: #f5f9ff
+	position: relative
+	overflow: initial
 
+	&::before
+	  content: ''
+	  position: absolute
+	  top: -150px
+	  left: 0
+	  display: block
+	  background: url('../img/monitoring_bg-left.png') no-repeat
+	  width: 508px
+	  height: 827px
 
+	&::after
+	  content: ''
+	  position: absolute
+	  top: 140px
+	  right: 0
+	  display: block
+	  background: url('../img/monitoring_bg-right.png') no-repeat
+	  width: 484px
+	  height: 722px
 
+	&__block
+	  padding: 100px 0
+	&__block:first-child
+	  padding-bottom: 50px
 
+	&__list
+	  margin: 40px 100px 0
+	&__item
+	  position: relative
+	  p
+	  	font-family: $title
+	  	color: #112439
+	  	font-weight: bold
 
+	  &:nth-child(2)
+	  	.monitoring__img_svg
+	  		transform: rotate(-30deg)
+	  &:nth-child(2)
+	  	.monitoring__img_absolute
+	  		left: calc(60% - 30px)
+	  &:nth-child(3)
+	  	.monitoring__img_absolute
+	  		left: calc(60% - 30px)
+
+	&__img
+		position: relative
+		margin-bottom: 30px
+	&__img_absolute
+	  position: absolute
+	  left: calc(60% - 45px)
+	  top: 50px
+
+.contacts
+	background: linear-gradient(to bottom, #f6faff 87%,#ffffff 100%)
+	margin-bottom: -98px
+	position: relative
+	overflow: initial
+	padding: 160px 0 160px 120px
+	&::after
+		content: ''
+		position: absolute
+		right: 0
+		bottom: 0
+		display: block
+		background: url('../img/contacts_bg_right.png') no-repeat
+		width: 870px
+		height: 709px
+
+	h2
+		margin-bottom: 25px
+		font-size: 30px
+	h3
+		color: $accent
+		font-size: 24px
+		margin-top: 25px
+	p:last-of-type
+		margin-top: 17px
+
+	&__block
+		padding: 30px 30px 40px
+		max-width: 470px
+		font-size: 16px
+		position: relative
+		z-index: 6
+		border-radius: 5px
+		background-image: url('../img/contacts_bg.png')
+		background-color: white
+		background-position-y: top
+		background-position-x: right
+		background-size: auto
+		background-repeat: no-repeat
+		box-shadow: 0 50px 40px rgba(50, 149, 254, .04)
+		span, a
+		  font-size: 16px
+		  color: #4d4d4d
+		a:hover
+		  color: $accent
+		  font-weight: bold
+	&__mail::before
+	  content: ''
+	  display: inline-block
+	  width: 17px
+	  height: 17px
+	  margin-right: 15px
+	  background: url('../img/icon/send-mail_ico.svg')
+	&__phone::before
+	  content: ''
+	  display: inline-block
+	  width: 17px
+	  height: 17px
+	  margin-right: 15px
+	  background: url('../img/icon/phone_ico.svg')
+	&__btn
+		  font-size: 14px
+		  color: white
+		  font-weight: bold
+		  margin-top: 37px
 .footer
-	height: 1000px
+	position: relative
+	z-index: 5
+	min-height: 205px
+	padding-top: 100px
+	background-color: transparent
+	background: url("../img/footer_bg_right.png") no-repeat left 31vw bottom 0, url("../img/footer_bg_left.png") no-repeat right 73vw bottom 0
+	&::before
+		content: ''
+		background-image: url('../img/contacts-footer_left-bg.png')
+		background-repeat: no-repeat
+		background-size: auto
+		background-position: bottom left
+		position: absolute
+		display: inline-block
+		width: 854px
+		height: 491px
+		bottom: 0
+
+	&__block
+		position: relative
+		z-index: 6
+	&__logo
+	  width: 29%
+	  display: inline-block
+	&__btn
+		position: relative
+		top: 12px
+		left: 35px
+		background-color: transparent
+		border: 1px solid #fff
+		border-radius: 50px
+		padding: 12px 22px
+		line-height: 1
+		font-family: $title
+		font-weight: 900
+		color: #fff
+		transition: all .3s
+		letter-spacing: 1px
+		&:hover, &:focus
+			color: $base_bg
+			background-color: white
+
+	&__menu
+	  width: 69%
+	  position: relative
+	  display: inline-block
+			nav
+				display: inline-block
+				margin-top: 25px
+				ul
+				  margin-left: 65px
+				ul,li
+			  	  display: inline-block
+			  	  text-align: left
+				li
+				  margin-right: 10px
+				li:last-child
+				  margin-right: 0
+				a
+			  		color: white
+				  	font-size: 14px
+	&__copy
+	  text-align: center
+	  color: white
+	  margin-top: 25px
+	  opacity: .5
+	  a
+	  	color: $accent
+	  	&:hover
+	  		color: darken($accent, 30%)
+
+// bg hook
+section > .container
+	position: relative
+	z-index: 6
+
+
 @import "media" // Always at the end
